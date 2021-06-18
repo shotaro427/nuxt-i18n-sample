@@ -43,6 +43,27 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    [
+      'nuxt-i18n',
+      {
+        // 使用する言語
+        locales: [
+          { code: 'ja', name: 'Japanese', iso: 'ja_JP', file: 'ja.json' },
+          { code: 'en', name: 'English', iso: 'en-US', file: 'en.json' },
+          { code: 'hi', name: 'Hieroglyph', file: 'hi.json' },
+          { code: 'ru', name: 'Rune', file: 'ru.json' },
+        ],
+        defaultLocale: 'en', // デフォルトの言語
+        langDir: 'locales/', // 翻訳ファイルのディレクトリパス
+        strategy: 'no_prefix', // URLに言語のプレフィックスを追加するかの指定
+        vueI18n: {
+          // 翻訳ファイルが見つからなかった場合の言語を指定
+          fallbackLocale: 'en',
+        },
+        vueI18nLoader: true,
+        lazy: true, // 遅延読み込みの有効化
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
