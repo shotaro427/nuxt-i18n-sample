@@ -39,9 +39,7 @@ $ yarn add nuxt-i18n
 ```
 ---
 
-## moduleに設定を追加
-
-`nuxt.config.js`を編集
+## nuxt.config.jsのmoduleに設定を追加
 ```javascript
 export default {
   // 略...

@@ -11,6 +11,13 @@
         </a>
       </div>
     </v-col>
+
+    <v-btn style="background-color: red" @click="onClickParent">
+      <v-row class="align-center">
+        <v-btn @click="onClickChild">あああ</v-btn>
+        <p class="mb-0">本文</p>
+      </v-row>
+    </v-btn>
   </v-col>
 </template>
 
@@ -40,6 +47,14 @@ export default {
     // async changeLocale(locale) {
     //   await this.$i18n.setLocale(locale)
     // },
+
+    onClickParent() {
+      console.log('parent component was clicked')
+    },
+
+    onClickChild() {
+      console.log('child component was clicked')
+    },
   },
 }
 </script>
