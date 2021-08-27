@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   components: {},
   computed: {
@@ -29,13 +30,18 @@ export default {
       return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
     },
   },
+  created() {
+    this.SET_LANGUAGE(this.$i18n.locale)
+  },
   methods: {
+    ...mapMutations(['SET_LANGUAGE']),
     /**
      * リロードあり
      * クッキーへ言語設定。リロード後、言語切替
      */
     changeLocale(locale) {
       this.$i18n.setLocaleCookie(locale)
+      this.SET_LANGUAGE(locale)
       this.$router.go(0)
     },
 
